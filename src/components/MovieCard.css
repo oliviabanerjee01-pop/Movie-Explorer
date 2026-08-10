@@ -1,0 +1,49 @@
+.movie-card {
+    width: 180px;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+
+    margin-top: 0;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-info {
+    padding: 14px;
+}
+
+.movie-info h2 {
+    margin: 0 0 10px;
+    color: var(--text-h);
+    font-size: 19px;
+}
+
+.movie-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.movie-details span:first-child {
+    color: var(--accent);
+}

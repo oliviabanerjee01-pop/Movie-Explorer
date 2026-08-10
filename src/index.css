@@ -1,0 +1,438 @@
+:root {
+    /* Main theme */
+    --bg: #0b0b10;
+    --bg-secondary: #111118;
+    --card-bg: #15151d;
+
+    /* Text */
+    --text: #b8b8c7;
+    --text-h: #f5f5f7;
+    --text-muted: #777783;
+
+    /* Accent */
+    --accent: #9b7cff;
+    --accent-hover: #b39aff;
+    --accent-bg: rgba(155, 124, 255, 0.12);
+    --accent-border: rgba(155, 124, 255, 0.45);
+
+    /* Borders */
+    --border: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(155, 124, 255, 0.5);
+
+    /* Effects */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.5);
+
+    /* Layout */
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: var(--text);
+    background: var(--bg);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ------------------------------
+   GLOBAL RESET
+-------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+
+    scroll-behavior: smooth;
+
+    background: var(--bg);
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(155, 124, 255, 0.12),
+            transparent 40%
+        ),
+        var(--bg);
+
+    color: var(--text);
+}
+
+
+/* ------------------------------
+   REACT ROOT
+-------------------------------- */
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------------------------------
+   APP
+-------------------------------- */
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+
+    background: transparent;
+}
+
+
+/* ------------------------------
+   TYPOGRAPHY
+-------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+
+    color: var(--text-h);
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+p {
+    color: var(--text);
+}
+
+
+/* ------------------------------
+   LINKS
+-------------------------------- */
+
+a {
+    color: var(--accent);
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+
+/* ------------------------------
+   BUTTON RESET
+-------------------------------- */
+
+button {
+    font: inherit;
+
+    border: none;
+
+    outline: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+
+/* ------------------------------
+   INPUTS
+-------------------------------- */
+
+input {
+    font: inherit;
+
+    color: var(--text-h);
+
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus {
+    border-color: var(--accent);
+
+    background: var(--card-bg);
+
+    box-shadow:
+        0 0 0 3px var(--accent-bg);
+}
+
+
+/* ------------------------------
+   SELECTION
+-------------------------------- */
+
+::selection {
+    color: white;
+    background: var(--accent);
+}
+
+
+/* ------------------------------
+   SCROLLBAR
+-------------------------------- */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+
+/* ------------------------------
+   MOVIE APP BASE
+-------------------------------- */
+
+main {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* ------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
+/* =========================================
+   APP LAYOUT
+========================================= */
+
+.app {
+    min-height: 100vh;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    padding: 0 5%;
+}
+
+
+/* =========================================
+   HEADER / HERO
+========================================= */
+
+
+
+header {
+    width: 100%;
+    padding: 75px 20px 35px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+
+    font-weight: 800;
+    letter-spacing: -0.055em;
+
+    color: var(--text-h);
+
+    background: linear-gradient(
+        120deg,
+        #ffffff 10%,
+        #d8ccff 45%,
+        var(--accent) 85%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(
+        0 12px 30px rgba(155, 124, 255, 0.2)
+    );
+}
+
+header h1::after {
+    content: ".";
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+}
+
+/* =========================================
+   SEARCH AREA
+========================================= */
+
+.search-box {
+    width: min(700px, 100%);
+
+    margin: 25px auto 50px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 6px;
+
+    background: rgba(17, 17, 24, 0.85);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(14px);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: var(--accent-border);
+
+    box-shadow:
+        0 0 0 4px var(--accent-bg),
+        0 18px 50px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   SEARCH INPUT
+========================================= */
+
+.search-box input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 16px 18px;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--text-h);
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.search-box input:focus {
+    box-shadow: none;
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* =========================================
+   SEARCH BUTTON
+========================================= */
+
+.search-box button {
+    padding: 14px 24px;
+
+    border: 1px solid var(--accent-border);
+
+    border-radius: 13px;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(155, 124, 255, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.search-box button:hover {
+    background: var(--accent-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(155, 124, 255, 0.4);
+}
+
+.search-box button:active {
+    transform: scale(0.96);
+}
+
