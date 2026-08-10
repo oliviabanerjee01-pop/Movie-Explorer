@@ -2,7 +2,7 @@ function Header(){
     return (
         <header className="header">
             <div className = "header-content">
-                <h1>🎬 Velora</h1>
+                <h1>🎬 Cineva</h1>
                 <p>Find your next movie</p>
             </div>
         </header>
