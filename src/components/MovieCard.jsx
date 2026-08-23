@@ -1,23 +1,22 @@
 import "./MovieCard.css";
+import { Link } from "react-router-dom";
+
 function MovieCard(props) {
-    console.log(props.movie);
+
     return (
-        <div className="movie-card">
-            <img
-                className="movie-poster"
-                src={props.movie.Poster}
-                alt={props.movie.Title}
-            />
+        <Link to={`/movie/${props.movie.imdbID}`}>
 
-            <div className="movie-info">
-                <h2>{props.movie.Title}</h2>
+            <div className="movie-card">
 
-                <div className="movie-details">
-                    
-                    <span>{props.movie.year}</span>
-                </div>
+                <img
+                    className="movie-poster"
+                    src={props.movie.Poster}
+                    alt={props.movie.Title}
+                />
+
             </div>
-        </div>
+
+        </Link>
     );
 }
 

@@ -1,70 +1,34 @@
-import { useState } from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
-import MovieCard from "./components/MovieCard";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/MovieDetails";
+import About from "./pages/About";
+
 function App() {
-  const [search, setSearch] = useState("");
-  const [movies, setMovies] = useState([]);
-
-  async function searchMovies() {
-        const response = await fetch(
-            `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}&s=${search}`
-        );
-
-        const data = await response.json();
-
-        setMovies(data.Search || []);
-    }
     return (
-        <div className="app">
+        <BrowserRouter>
+
             <Header />
 
-            <main>
-                <SearchBar
-                    search={search}
-                    setSearch={setSearch}
-                    searchMovies={searchMovies}
+            <Routes>
+
+                <Route path="/" element={<Home />} />
+
+                <Route
+                    path="/movie/:id"
+                    element={<MovieDetails />}
                 />
 
-                <div className="movie-section">
-                    <button
-        className="carousel-button"
-        onClick={() => {
-            document.querySelector(".movie-grid").scrollBy({
-                left: -500,
-                behavior: "smooth"
-            });
-        }}
-    >
-        ‹
-    </button>
+                <Route
+                    path="/about"
+                    element={<About />}
+                />
 
-    <div className="movie-grid">
-        {movies.map((movie) => (
-            <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-            />
-        ))}
-    </div>
+            </Routes>
 
-    <button
-        className="carousel-button"
-        onClick={() => {
-            document.querySelector(".movie-grid").scrollBy({
-                left: 500,
-                behavior: "smooth"
-            });
-        }}
-    >
-        ›
-    </button>
-  
-                </div>
-            </main>
-            
-        </div>
+        </BrowserRouter>
     );
 }
 
